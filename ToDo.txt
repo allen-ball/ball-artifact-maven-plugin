@@ -1,8 +1,6 @@
 $Id$
 
 ArtifactDownloadMojo.java
-        * Add (and honor) <attach/> parameters
-        * Add (and honor) <file/> parameters
         * Add TransferListener to Wagon
 
 
