@@ -1,0 +1,12 @@
+$Id$
+
+ArtifactDownloadMojo.java
+        * Add (and honor) <attach/> parameters
+        * Add (and honor) <file/> parameters
+        * Add TransferListener to Wagon
+
+
+Local Variables:
+mode: auto-fill
+fill-column: 78
+End:
