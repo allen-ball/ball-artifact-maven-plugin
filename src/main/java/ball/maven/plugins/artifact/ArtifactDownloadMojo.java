@@ -76,7 +76,9 @@ public class ArtifactDownloadMojo extends AbstractArtifactMojo {
     private void download(AttachedArtifact artifact,
                           boolean attach, URI uri) throws Exception {
         if (uri != null) {
-            File local = getLocalRepositoryFile(type, classifier);
+            File local =
+                getLocalRepositoryFile(artifact.getType(),
+                                       artifact.getClassifier());
 
             if (! local.exists()) {
                 File file = getArtifactFile(artifact);

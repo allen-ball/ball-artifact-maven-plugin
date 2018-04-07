@@ -195,7 +195,7 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
             name += "-" + classifier;
         }
 
-        name += "." + type;
+        name += "." + defaultString(type, JAR);
 
         file = new File(file, name);
 
