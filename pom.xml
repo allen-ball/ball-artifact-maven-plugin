@@ -22,13 +22,7 @@
   </properties>
   <profiles>
     <profile>
-      <id>sources</id>
-      <activation>
-        <file><exists>${basedir}/src/main/java</exists></file>
-      </activation>
-    </profile>
-    <profile>
-      <id>javadoc</id>
+      <id>[+] src/main/javadoc</id>
       <activation>
         <file><exists>${basedir}/src/main/javadoc</exists></file>
       </activation>
