@@ -26,7 +26,7 @@ import static org.codehaus.plexus.util.StringUtils.defaultString;
  * {@link org.apache.maven.plugin.Mojo} to download and attach (zero or
  * more) artifacts to a project.
  *
- * @author  <a href="mailto:ball@iprotium.com">Allen D. Ball</a>
+ * @author  <a href="mailto:ball@hcf.dev">Allen D. Ball</a>
  * @version $Revision$
  */
 @Mojo(name = "download", defaultPhase = LifecyclePhase.GENERATE_SOURCES,

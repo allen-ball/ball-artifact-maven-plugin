@@ -34,7 +34,7 @@ import static org.codehaus.plexus.util.StringUtils.isNotEmpty;
 /**
  * {@link org.apache.maven.plugin.Mojo}
  *
- * @author  <a href="mailto:ball@iprotium.com">Allen D. Ball</a>
+ * @author  <a href="mailto:ball@hcf.dev">Allen D. Ball</a>
  * @version $Revision$
  */
 @NoArgsConstructor @ToString

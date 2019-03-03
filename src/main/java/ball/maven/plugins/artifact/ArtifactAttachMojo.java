@@ -19,7 +19,7 @@ import org.apache.maven.plugins.annotations.Parameter;
  * {@link org.apache.maven.plugin.Mojo} to attach (zero or more) artifacts
  * to a project.
  *
- * @author  <a href="mailto:ball@iprotium.com">Allen D. Ball</a>
+ * @author  <a href="mailto:ball@hcf.dev">Allen D. Ball</a>
  * @version $Revision$
  */
 @Mojo(name = "attach", defaultPhase = LifecyclePhase.PACKAGE,
