@@ -1,12 +1,16 @@
 /*
  * $Id$
  *
- * Copyright 2018 Allen D. Ball.  All rights reserved.
+ * Copyright 2018, 2019 Allen D. Ball.  All rights reserved.
  */
 package ball.maven.plugins.artifact;
 
 import java.io.File;
 import java.util.List;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.AbstractMojo;
@@ -23,6 +27,7 @@ import org.codehaus.plexus.context.Context;
 import org.codehaus.plexus.context.ContextException;
 import org.codehaus.plexus.personality.plexus.lifecycle.phase.Contextualizable;
 
+import static lombok.AccessLevel.PROTECTED;
 import static org.codehaus.plexus.util.StringUtils.defaultString;
 import static org.codehaus.plexus.util.StringUtils.isNotEmpty;
 
@@ -32,6 +37,7 @@ import static org.codehaus.plexus.util.StringUtils.isNotEmpty;
  * @author  <a href="mailto:ball@iprotium.com">Allen D. Ball</a>
  * @version $Revision$
  */
+@NoArgsConstructor @ToString
 public abstract class AbstractArtifactMojo extends AbstractMojo
                                            implements AttachedArtifact,
                                                       Contextualizable {
@@ -80,11 +86,6 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
 
     @Parameter(property = "file", required = false)
     protected File file = null;
-
-    /**
-     * Sole constructor.
-     */
-    public AbstractArtifactMojo() { super(); }
 
     @Override
     public String getType() { return type; }
@@ -202,41 +203,19 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
         return file;
     }
 
-    @Override
-    public String toString() { return super.toString(); }
-
     /**
      * {@code <artifact/>} parameter abstract base class.
      */
+    @NoArgsConstructor(access = PROTECTED) @ToString
     protected static class AbstractAttachedArtifact
                            implements AttachedArtifact {
-        private String type = null;
-        private String classifier = null;
-        private File file = null;
-
-        /**
-         * Sole constructor.
-         */
-        protected AbstractAttachedArtifact() { }
-
-        @Override
-        public String getType() { return type; }
-        public void setType(String string) { this.type = string; }
-
-        @Override
-        public String getClassifier() { return classifier; }
-        public void setClassifier(String string) { this.classifier = string; }
-
-        @Override
-        public File getFile() { return file; }
-        public void setFile(File file) { this.file = file; }
+        @Getter @Setter private String type = null;
+        @Getter @Setter private String classifier = null;
+        @Getter @Setter private File file = null;
 
         @Override
         public boolean isConfigured() {
             return isNotEmpty(type) || isNotEmpty(classifier) || file != null;
         }
-
-        @Override
-        public String toString() { return super.toString(); }
     }
 }

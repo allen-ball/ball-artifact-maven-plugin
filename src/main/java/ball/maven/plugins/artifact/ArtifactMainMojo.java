@@ -1,10 +1,12 @@
 /*
  * $Id$
  *
- * Copyright 2018 Allen D. Ball.  All rights reserved.
+ * Copyright 2018, 2019 Allen D. Ball.  All rights reserved.
  */
 package ball.maven.plugins.artifact;
 
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
@@ -19,13 +21,8 @@ import org.apache.maven.plugins.annotations.Parameter;
  */
 @Mojo(name = "main", defaultPhase = LifecyclePhase.PACKAGE,
       requiresProject = true)
+@NoArgsConstructor @ToString
 public class ArtifactMainMojo extends AbstractArtifactMojo {
-
-    /**
-     * Sole constructor.
-     */
-    public ArtifactMainMojo() { super(); }
-
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         try {

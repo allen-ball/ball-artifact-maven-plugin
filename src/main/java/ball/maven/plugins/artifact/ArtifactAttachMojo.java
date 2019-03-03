@@ -1,12 +1,14 @@
 /*
  * $Id$
  *
- * Copyright 2018 Allen D. Ball.  All rights reserved.
+ * Copyright 2018 - 2019 Allen D. Ball.  All rights reserved.
  */
 package ball.maven.plugins.artifact;
 
 import java.io.File;
 import java.util.List;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
@@ -22,14 +24,10 @@ import org.apache.maven.plugins.annotations.Parameter;
  */
 @Mojo(name = "attach", defaultPhase = LifecyclePhase.PACKAGE,
       requiresProject = true)
+@NoArgsConstructor @ToString
 public class ArtifactAttachMojo extends AbstractArtifactMojo {
     @Parameter(property = "artifacts", required = false)
     protected List<Artifact> artifacts = null;
-
-    /**
-     * Sole constructor.
-     */
-    public ArtifactAttachMojo() { super(); }
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
@@ -61,11 +59,7 @@ public class ArtifactAttachMojo extends AbstractArtifactMojo {
     /**
      * {@code <artifact/>} parameter.
      */
+    @NoArgsConstructor @ToString
     public static class Artifact extends AbstractAttachedArtifact {
-
-        /**
-         * Sole constructor.
-         */
-        public Artifact() { super(); }
     }
 }
