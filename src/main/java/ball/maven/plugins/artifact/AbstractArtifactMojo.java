@@ -28,8 +28,8 @@ import org.codehaus.plexus.context.ContextException;
 import org.codehaus.plexus.personality.plexus.lifecycle.phase.Contextualizable;
 
 import static lombok.AccessLevel.PROTECTED;
-import static org.codehaus.plexus.util.StringUtils.defaultString;
-import static org.codehaus.plexus.util.StringUtils.isNotEmpty;
+import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
 /**
  * {@link org.apache.maven.plugin.Mojo}

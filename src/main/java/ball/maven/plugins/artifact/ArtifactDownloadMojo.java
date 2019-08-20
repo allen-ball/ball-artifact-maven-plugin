@@ -20,7 +20,7 @@ import org.apache.maven.wagon.Wagon;
 import org.apache.maven.wagon.repository.Repository;
 
 import static java.util.Locale.ENGLISH;
-import static org.codehaus.plexus.util.StringUtils.defaultString;
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 /**
  * {@link org.apache.maven.plugin.Mojo} to download and attach (zero or
