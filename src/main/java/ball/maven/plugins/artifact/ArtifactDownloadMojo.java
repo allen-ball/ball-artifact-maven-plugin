@@ -1,13 +1,15 @@
 /*
  * $Id$
  *
- * Copyright 2018 Allen D. Ball.  All rights reserved.
+ * Copyright 2018, 2019 Allen D. Ball.  All rights reserved.
  */
 package ball.maven.plugins.artifact;
 
 import java.io.File;
 import java.net.URI;
 import java.util.List;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
@@ -18,17 +20,18 @@ import org.apache.maven.wagon.Wagon;
 import org.apache.maven.wagon.repository.Repository;
 
 import static java.util.Locale.ENGLISH;
-import static org.codehaus.plexus.util.StringUtils.defaultString;
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 /**
  * {@link org.apache.maven.plugin.Mojo} to download and attach (zero or
  * more) artifacts to a project.
  *
- * @author  <a href="mailto:ball@iprotium.com">Allen D. Ball</a>
+ * @author  <a href="mailto:ball@hcf.dev">Allen D. Ball</a>
  * @version $Revision$
  */
 @Mojo(name = "download", defaultPhase = LifecyclePhase.GENERATE_SOURCES,
       requiresProject = true)
+@NoArgsConstructor @ToString
 public class ArtifactDownloadMojo extends AbstractArtifactMojo {
     @Parameter(property = "attach", required = false, defaultValue = "true")
     protected boolean attach = true;
@@ -38,11 +41,6 @@ public class ArtifactDownloadMojo extends AbstractArtifactMojo {
 
     @Parameter(property = "artifacts", required = false)
     protected List<Artifact> artifacts = null;
-
-    /**
-     * Sole constructor.
-     */
-    public ArtifactDownloadMojo() { super(); }
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
@@ -118,14 +116,10 @@ public class ArtifactDownloadMojo extends AbstractArtifactMojo {
     /**
      * {@code <artifact/>} parameter.
      */
+    @NoArgsConstructor @ToString
     public static class Artifact extends AbstractAttachedArtifact {
         private boolean attach = true;
         private URI uri = null;
-
-        /**
-         * Sole constructor.
-         */
-        public Artifact() { super(); }
 
         public Boolean getAttach() { return attach; }
         public void setAttach(boolean attach) { this.attach = attach; }
