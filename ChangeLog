@@ -1,5 +1,7 @@
 2019-08-20  Allen D. Ball  <ball@sol.local>
 
+	* pom.xml: Released version 1.0.1.
+
 	* src/main/java/ball/maven/plugins/artifact/AbstractArtifactMojo.java,
 	src/main/java/ball/maven/plugins/artifact/ArtifactDownloadMojo.java:
 	Stop using deprecated APIs.
