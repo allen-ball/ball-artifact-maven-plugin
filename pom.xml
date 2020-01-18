@@ -8,12 +8,12 @@
   <name>Artifact Attach Maven Plugin</name>
   <groupId>ball</groupId>
   <artifactId>ball-artifact-maven-plugin</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <packaging>maven-plugin</packaging>
   <parent>
     <groupId>ball</groupId>
     <artifactId>parent</artifactId>
-    <version>20200102.0</version>
+    <version>20200117.0</version>
     <relativePath>../ball/parent/pom.xml</relativePath>
   </parent>
   <properties>
@@ -47,11 +47,6 @@
       <groupId>org.apache.maven.wagon</groupId>
       <artifactId>wagon-provider-api</artifactId>
       <scope>provided</scope>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.codehaus.plexus</groupId>
-      <artifactId>plexus-utils</artifactId>
       <optional>true</optional>
     </dependency>
     <dependency>
