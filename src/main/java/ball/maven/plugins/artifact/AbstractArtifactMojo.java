@@ -1,12 +1,13 @@
 /*
  * $Id$
  *
- * Copyright 2018, 2019 Allen D. Ball.  All rights reserved.
+ * Copyright 2018 - 2020 Allen D. Ball.  All rights reserved.
  */
 package ball.maven.plugins.artifact;
 
 import java.io.File;
 import java.util.List;
+import java.util.regex.Pattern;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -183,7 +184,8 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
     protected File getLocalRepositoryFile(String type, String classifier) {
         File file = new File(local.getBasedir());
 
-        for (String string : project.getArtifact().getGroupId().split("[.]")) {
+        for (String string :
+                 project.getArtifact().getGroupId().split(Pattern.quote("."))) {
             file = new File(file, string);
         }
 
