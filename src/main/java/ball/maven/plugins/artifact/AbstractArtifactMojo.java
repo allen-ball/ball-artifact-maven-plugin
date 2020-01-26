@@ -33,9 +33,11 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
 /**
- * {@link org.apache.maven.plugin.Mojo}
+ * {@link org.apache.maven.plugin.Mojo}.
  *
- * @author  <a href="mailto:ball@hcf.dev">Allen D. Ball</a>
+ * {@injected.fields}
+ *
+ * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
  * @version $Revision$
  */
 @NoArgsConstructor @ToString

@@ -1,7 +1,7 @@
 /*
  * $Id$
  *
- * Copyright 2018, 2019 Allen D. Ball.  All rights reserved.
+ * Copyright 2018 - 2020 Allen D. Ball.  All rights reserved.
  */
 package ball.maven.plugins.artifact;
 
@@ -16,11 +16,10 @@ import org.apache.maven.plugins.annotations.Parameter;
 /**
  * {@link org.apache.maven.plugin.Mojo} to set project main artifact.
  *
- * @author  <a href="mailto:ball@hcf.dev">Allen D. Ball</a>
+ * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
  * @version $Revision$
  */
-@Mojo(name = "main", defaultPhase = LifecyclePhase.PACKAGE,
-      requiresProject = true)
+@Mojo(name = "main", defaultPhase = LifecyclePhase.PACKAGE, requiresProject = true)
 @NoArgsConstructor @ToString
 public class ArtifactMainMojo extends AbstractArtifactMojo {
     @Override

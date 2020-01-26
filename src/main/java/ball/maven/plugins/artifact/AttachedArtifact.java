@@ -1,7 +1,7 @@
 /*
  * $Id$
  *
- * Copyright 2018 Allen D. Ball.  All rights reserved.
+ * Copyright 2018 - 2020 Allen D. Ball.  All rights reserved.
  */
 package ball.maven.plugins.artifact;
 
@@ -10,7 +10,7 @@ import java.io.File;
 /**
  * Attached {@code <artifact/>} parameter base interface.
  *
- * @author  <a href="mailto:ball@hcf.dev">Allen D. Ball</a>
+ * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
  * @version $Revision$
  */
 public interface AttachedArtifact {
