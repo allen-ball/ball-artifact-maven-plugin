@@ -11,21 +11,19 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
+
+import static org.apache.maven.plugins.annotations.LifecyclePhase.PACKAGE;
 
 /**
  * {@link org.apache.maven.plugin.Mojo} to attach (zero or more) artifacts
  * to a project.
  *
- * {@injected.fields}
- *
  * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
  * @version $Revision$
  */
-@Mojo(name = "attach", defaultPhase = LifecyclePhase.PACKAGE,
-      requiresProject = true)
+@Mojo(name = "attach", defaultPhase = PACKAGE, requiresProject = true)
 @NoArgsConstructor @ToString
 public class ArtifactAttachMojo extends AbstractArtifactMojo {
     @Parameter(property = "artifacts", required = false)

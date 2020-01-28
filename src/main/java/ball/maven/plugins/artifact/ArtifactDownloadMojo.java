@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.wagon.UnsupportedProtocolException;
@@ -21,18 +20,16 @@ import org.apache.maven.wagon.repository.Repository;
 
 import static java.util.Locale.ENGLISH;
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.apache.maven.plugins.annotations.LifecyclePhase.GENERATE_SOURCES;
 
 /**
  * {@link org.apache.maven.plugin.Mojo} to download and attach (zero or
  * more) artifacts to a project.
  *
- * {@injected.fields}
- *
  * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
  * @version $Revision$
  */
-@Mojo(name = "download", defaultPhase = LifecyclePhase.GENERATE_SOURCES,
-      requiresProject = true)
+@Mojo(name = "download", defaultPhase = GENERATE_SOURCES, requiresProject = true)
 @NoArgsConstructor @ToString
 public class ArtifactDownloadMojo extends AbstractArtifactMojo {
     @Parameter(property = "attach", required = false, defaultValue = "true")

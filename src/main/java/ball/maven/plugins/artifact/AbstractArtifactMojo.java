@@ -35,8 +35,6 @@ import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 /**
  * {@link org.apache.maven.plugin.Mojo}.
  *
- * {@injected.fields}
- *
  * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
  * @version $Revision$
  */

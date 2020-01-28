@@ -9,9 +9,11 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugins.annotations.LifecyclePhase;
+
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
+
+import static org.apache.maven.plugins.annotations.LifecyclePhase.PACKAGE;
 
 /**
  * {@link org.apache.maven.plugin.Mojo} to set project main artifact.
@@ -19,7 +21,7 @@ import org.apache.maven.plugins.annotations.Parameter;
  * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
  * @version $Revision$
  */
-@Mojo(name = "main", defaultPhase = LifecyclePhase.PACKAGE, requiresProject = true)
+@Mojo(name = "main", defaultPhase = PACKAGE, requiresProject = true)
 @NoArgsConstructor @ToString
 public class ArtifactMainMojo extends AbstractArtifactMojo {
     @Override
