@@ -18,6 +18,8 @@ import static org.apache.maven.plugins.annotations.LifecyclePhase.PACKAGE;
 /**
  * {@link org.apache.maven.plugin.Mojo} to set project main artifact.
  *
+ * {@maven.plugin}
+ *
  * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
  * @version $Revision$
  */
