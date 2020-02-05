@@ -22,6 +22,7 @@ package ball.maven.plugins.artifact;
  */
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
@@ -39,7 +40,7 @@ import static org.apache.maven.plugins.annotations.LifecyclePhase.PACKAGE;
  * @version $Revision$
  */
 @Mojo(name = "main", defaultPhase = PACKAGE, requiresProject = true)
-@NoArgsConstructor @ToString
+@NoArgsConstructor @ToString @Slf4j
 public class ArtifactMainMojo extends AbstractArtifactMojo {
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {

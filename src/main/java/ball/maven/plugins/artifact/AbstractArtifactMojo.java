@@ -27,6 +27,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.AbstractMojo;
@@ -53,7 +54,7 @@ import static org.apache.commons.lang3.StringUtils.isNotEmpty;
  * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
  * @version $Revision$
  */
-@NoArgsConstructor @ToString
+@NoArgsConstructor @ToString @Slf4j
 public abstract class AbstractArtifactMojo extends AbstractMojo
                                            implements AttachedArtifact,
                                                       Contextualizable {

@@ -25,6 +25,7 @@ import java.net.URI;
 import java.util.List;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Mojo;
@@ -47,7 +48,7 @@ import static org.apache.maven.plugins.annotations.LifecyclePhase.GENERATE_SOURC
  * @version $Revision$
  */
 @Mojo(name = "download", defaultPhase = GENERATE_SOURCES, requiresProject = true)
-@NoArgsConstructor @ToString
+@NoArgsConstructor @ToString @Slf4j
 public class ArtifactDownloadMojo extends AbstractArtifactMojo {
     @Parameter(property = "attach", required = false, defaultValue = "true")
     protected boolean attach = true;

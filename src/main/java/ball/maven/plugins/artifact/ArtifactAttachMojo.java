@@ -24,6 +24,7 @@ import java.io.File;
 import java.util.List;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Mojo;
@@ -41,7 +42,7 @@ import static org.apache.maven.plugins.annotations.LifecyclePhase.PACKAGE;
  * @version $Revision$
  */
 @Mojo(name = "attach", defaultPhase = PACKAGE, requiresProject = true)
-@NoArgsConstructor @ToString
+@NoArgsConstructor @ToString @Slf4j
 public class ArtifactAttachMojo extends AbstractArtifactMojo {
     @Parameter(property = "artifacts", required = false)
     protected List<Artifact> artifacts = null;
