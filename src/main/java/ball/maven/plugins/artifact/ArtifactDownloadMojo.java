@@ -42,7 +42,7 @@ import static org.apache.maven.plugins.annotations.LifecyclePhase.GENERATE_SOURC
  * {@link org.apache.maven.plugin.Mojo} to download and attach (zero or
  * more) artifacts to a project.
  *
- * {@maven.plugin}
+ * {@maven.plugin.fields}
  *
  * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
  * @version $Revision$

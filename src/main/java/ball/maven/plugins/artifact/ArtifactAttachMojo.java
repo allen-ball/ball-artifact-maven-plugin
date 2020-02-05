@@ -36,7 +36,7 @@ import static org.apache.maven.plugins.annotations.LifecyclePhase.PACKAGE;
  * {@link org.apache.maven.plugin.Mojo} to attach (zero or more) artifacts
  * to a project.
  *
- * {@maven.plugin}
+ * {@maven.plugin.fields}
  *
  * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
  * @version $Revision$
