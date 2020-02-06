@@ -54,7 +54,7 @@ import static org.apache.commons.lang3.StringUtils.isNotEmpty;
  * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
  * @version $Revision$
  */
-@NoArgsConstructor @ToString @Slf4j
+@NoArgsConstructor(access = PROTECTED) @ToString @Slf4j
 public abstract class AbstractArtifactMojo extends AbstractMojo
                                            implements AttachedArtifact,
                                                       Contextualizable {
@@ -63,46 +63,46 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
     protected PlexusContainer container = null;
 
     @Parameter(defaultValue = "${session}", readonly = true, required = true)
-    protected MavenSession session = null;
+    private MavenSession session = null;
 
     @Parameter(defaultValue = "${localRepository}",
                readonly = true, required = true)
-    protected ArtifactRepository local = null;
+    private ArtifactRepository local = null;
 
     @Parameter(defaultValue = "${project.remoteArtifactRepositories}",
                readonly = true, required = true)
-    protected List<ArtifactRepository> remote = null;
+    private List<ArtifactRepository> remote = null;
 
     @Parameter(defaultValue = "${project}", readonly = true, required = true)
-    protected MavenProject project = null;
+    private MavenProject project = null;
 
     @Parameter(defaultValue = "${mojoExecution}",
                readonly = true, required = true)
-    protected MojoExecution mojo = null;
+    private MojoExecution mojo = null;
 
     @Parameter(defaultValue = "${plugin}", readonly = true, required = true)
-    protected PluginDescriptor plugin = null;
+    private PluginDescriptor plugin = null;
 
     @Parameter(defaultValue = "${settings}", readonly = true, required = true)
-    protected Settings settings = null;
+    private Settings settings = null;
 
     @Component(role = MavenProjectHelper.class)
-    protected MavenProjectHelper helper = null;
+    private MavenProjectHelper helper = null;
 
     @Parameter(defaultValue = "${project.build.directory}")
-    protected File directory = null;
+    private File directory = null;
 
     @Parameter(defaultValue = "${project.build.finalName}")
-    protected String name;
+    private String name;
 
     @Parameter(property = "type", required = false)
-    protected String type = null;
+    private String type = null;
 
     @Parameter(property = "classifier", required = false)
-    protected String classifier = null;
+    private String classifier = null;
 
     @Parameter(property = "file", required = false)
-    protected File file = null;
+    private File file = null;
 
     @Override
     public String getType() { return type; }

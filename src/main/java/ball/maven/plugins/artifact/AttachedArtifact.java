@@ -30,10 +30,7 @@ import java.io.File;
  */
 public interface AttachedArtifact {
     public String getType();
-
     public String getClassifier();
-
     public File getFile();
-
     public boolean isConfigured();
 }

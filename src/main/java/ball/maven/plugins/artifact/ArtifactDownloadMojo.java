@@ -23,7 +23,9 @@ package ball.maven.plugins.artifact;
 import java.io.File;
 import java.net.URI;
 import java.util.List;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -51,13 +53,13 @@ import static org.apache.maven.plugins.annotations.LifecyclePhase.GENERATE_SOURC
 @NoArgsConstructor @ToString @Slf4j
 public class ArtifactDownloadMojo extends AbstractArtifactMojo {
     @Parameter(property = "attach", required = false, defaultValue = "true")
-    protected boolean attach = true;
+    private boolean attach = true;
 
     @Parameter(property = "uri", required = false)
-    protected URI uri = null;
+    private URI uri = null;
 
     @Parameter(property = "artifacts", required = false)
-    protected List<Artifact> artifacts = null;
+    private List<Artifact> artifacts = null;
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
@@ -135,13 +137,9 @@ public class ArtifactDownloadMojo extends AbstractArtifactMojo {
      */
     @NoArgsConstructor @ToString
     public static class Artifact extends AbstractAttachedArtifact {
-        private boolean attach = true;
-        private URI uri = null;
+        @Getter @Setter private boolean attach = true;
+        @Getter @Setter private URI uri = null;
 
         public Boolean getAttach() { return attach; }
-        public void setAttach(boolean attach) { this.attach = attach; }
-
-        public URI getUri() { return uri; }
-        public void setUri(URI uri) { this.uri = uri; }
     }
 }

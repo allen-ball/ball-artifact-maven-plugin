@@ -45,7 +45,7 @@ import static org.apache.maven.plugins.annotations.LifecyclePhase.PACKAGE;
 @NoArgsConstructor @ToString @Slf4j
 public class ArtifactAttachMojo extends AbstractArtifactMojo {
     @Parameter(property = "artifacts", required = false)
-    protected List<Artifact> artifacts = null;
+    private List<Artifact> artifacts = null;
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
