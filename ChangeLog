@@ -36,14 +36,10 @@
 
 	* pom.xml: Released version 1.0.1.
 
-	* src/main/java/ball/maven/plugins/artifact/AbstractArtifactMojo.java,
-	src/main/java/ball/maven/plugins/artifact/ArtifactDownloadMojo.java:
+	* src/main/java/ball/maven/plugins/artifact/AbstractArtifactMojo.java:
 	Stop using deprecated APIs.
 
 2018-04-05  Allen D. Ball  <ball@sol.local>
-
-	* src/main/java/ball/maven/plugins/artifact/ArtifactDownloadMojo.java:
-	Support <attach/> and <file/> parameters.
 
 	* src/main/java/ball/maven/plugins/artifact/AbstractArtifactMojo.java:
 	Implement AttachedArtifact and use AttachedArtifact as parameter
@@ -51,11 +47,6 @@
 
 	* src/main/java/ball/maven/plugins/artifact/AttachedArtifact.java:
 	Changed to an interface.
-
-2018-04-02  Allen D. Ball  <ball@sol.local>
-
-	* src/main/java/ball/maven/plugins/artifact/ArtifactDownloadMojo.java:
-	Initial writing.
 
 2018-04-01  Allen D. Ball  <ball@sol.local>
 
