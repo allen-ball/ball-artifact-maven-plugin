@@ -22,6 +22,7 @@ package ball.maven.plugins.artifact;
  */
 import java.io.File;
 import java.util.regex.Pattern;
+import javax.inject.Inject;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,19 +30,13 @@ import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectHelper;
-import org.codehaus.plexus.PlexusContainer;
-import org.codehaus.plexus.context.Context;
-import org.codehaus.plexus.context.ContextException;
-import org.codehaus.plexus.personality.plexus.lifecycle.phase.Contextualizable;
 
 import static lombok.AccessLevel.PROTECTED;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
-import static org.codehaus.plexus.PlexusConstants.PLEXUS_KEY;
 
 /**
  * {@link org.apache.maven.plugin.Mojo}.
@@ -51,13 +46,10 @@ import static org.codehaus.plexus.PlexusConstants.PLEXUS_KEY;
  */
 @NoArgsConstructor(access = PROTECTED) @ToString @Slf4j
 public abstract class AbstractArtifactMojo extends AbstractMojo
-                                           implements AttachedArtifact,
-                                                      Contextualizable {
+                                           implements AttachedArtifact {
     protected static final String JAR = "jar";
 
-    protected PlexusContainer container = null;
-
-    @Component(role = MavenProjectHelper.class)
+    @Inject
     private MavenProjectHelper helper = null;
 
     @Parameter(defaultValue = "${localRepository}",
@@ -88,11 +80,6 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
     @Override
     public boolean isConfigured() {
         return isNotEmpty(type) || isNotEmpty(classifier) || file != null;
-    }
-
-    @Override
-    public void contextualize(Context context) throws ContextException {
-        container = (PlexusContainer) context.get(PLEXUS_KEY);
     }
 
     /**

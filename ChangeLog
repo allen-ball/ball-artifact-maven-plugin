@@ -1,7 +1,7 @@
-2020-02-10  Allen D. Ball  <ball@hcf.dev>
+2020-02-11  Allen D. Ball  <ball@hcf.dev>
 
 	* src/main/java/ball/maven/plugins/artifact/AbstractArtifactMojo.java:
-	Removed unused @Parameter fields.
+	Do not implement Contextualizable.  Removed unused @Parameter fields.
 
 2020-02-09  Allen D. Ball  <ball@hcf.dev>
 
