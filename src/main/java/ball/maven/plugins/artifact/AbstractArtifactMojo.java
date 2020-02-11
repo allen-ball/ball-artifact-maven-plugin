@@ -21,7 +21,6 @@ package ball.maven.plugins.artifact;
  * ##########################################################################
  */
 import java.io.File;
-import java.util.List;
 import java.util.regex.Pattern;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,16 +28,11 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.maven.artifact.repository.ArtifactRepository;
-import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.MojoExecution;
-import org.apache.maven.plugin.descriptor.PluginDescriptor;
 import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectHelper;
-import org.apache.maven.settings.Settings;
-import org.codehaus.plexus.PlexusConstants;
 import org.codehaus.plexus.PlexusContainer;
 import org.codehaus.plexus.context.Context;
 import org.codehaus.plexus.context.ContextException;
@@ -47,6 +41,7 @@ import org.codehaus.plexus.personality.plexus.lifecycle.phase.Contextualizable;
 import static lombok.AccessLevel.PROTECTED;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
+import static org.codehaus.plexus.PlexusConstants.PLEXUS_KEY;
 
 /**
  * {@link org.apache.maven.plugin.Mojo}.
@@ -62,56 +57,33 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
 
     protected PlexusContainer container = null;
 
-    @Parameter(defaultValue = "${session}", readonly = true, required = true)
-    private MavenSession session = null;
+    @Component(role = MavenProjectHelper.class)
+    private MavenProjectHelper helper = null;
 
     @Parameter(defaultValue = "${localRepository}",
                readonly = true, required = true)
     private ArtifactRepository local = null;
 
-    @Parameter(defaultValue = "${project.remoteArtifactRepositories}",
-               readonly = true, required = true)
-    private List<ArtifactRepository> remote = null;
-
     @Parameter(defaultValue = "${project}", readonly = true, required = true)
     private MavenProject project = null;
-
-    @Parameter(defaultValue = "${mojoExecution}",
-               readonly = true, required = true)
-    private MojoExecution mojo = null;
-
-    @Parameter(defaultValue = "${plugin}", readonly = true, required = true)
-    private PluginDescriptor plugin = null;
-
-    @Parameter(defaultValue = "${settings}", readonly = true, required = true)
-    private Settings settings = null;
-
-    @Component(role = MavenProjectHelper.class)
-    private MavenProjectHelper helper = null;
 
     @Parameter(defaultValue = "${project.build.directory}")
     private File directory = null;
 
     @Parameter(defaultValue = "${project.build.finalName}")
-    private String name;
+    private String name = null;
 
     @Parameter(property = "type", required = false)
+    @Getter
     private String type = null;
 
     @Parameter(property = "classifier", required = false)
+    @Getter
     private String classifier = null;
 
     @Parameter(property = "file", required = false)
+    @Getter
     private File file = null;
-
-    @Override
-    public String getType() { return type; }
-
-    @Override
-    public String getClassifier() { return classifier; }
-
-    @Override
-    public File getFile() { return file; }
 
     @Override
     public boolean isConfigured() {
@@ -120,7 +92,7 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
 
     @Override
     public void contextualize(Context context) throws ContextException {
-        container = (PlexusContainer) context.get(PlexusConstants.PLEXUS_KEY);
+        container = (PlexusContainer) context.get(PLEXUS_KEY);
     }
 
     /**
@@ -201,7 +173,8 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
         File file = new File(local.getBasedir());
 
         for (String string :
-                 project.getArtifact().getGroupId().split(Pattern.quote("."))) {
+                 project.getArtifact().getGroupId()
+                 .split(Pattern.quote("."))) {
             file = new File(file, string);
         }
 
