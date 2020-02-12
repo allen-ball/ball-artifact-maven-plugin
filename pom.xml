@@ -28,12 +28,12 @@
   <description></description>
   <groupId>ball</groupId>
   <artifactId>ball-artifact-maven-plugin</artifactId>
-  <version>3.1-SNAPSHOT</version>
+  <version>3.1.0</version>
   <packaging>maven-plugin</packaging>
   <parent>
     <groupId>ball</groupId>
     <artifactId>parent</artifactId>
-    <version>20200208-SNAPSHOT</version>
+    <version>20200212.0</version>
     <relativePath>../ball/parent/pom.xml</relativePath>
   </parent>
   <inceptionYear>2018</inceptionYear>
@@ -44,7 +44,8 @@
   </properties>
   <dependencies verbose="true">
     <!--
-        Must include (even though it is in the parent POM) to avoid:
+        Must include org.apache.maven:maven-plugin-api (even though it is
+        provided in the parent POM) to avoid:
 
         [ERROR] Failed to execute goal
         ball:ball-artifact-maven-plugin:3.0.0:attach (attach-parent.xml) on
@@ -57,6 +58,10 @@
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-plugin-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-artifact</artifactId>
     </dependency>
   </dependencies>
 </project>
