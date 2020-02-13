@@ -43,22 +43,6 @@
     <maven.javadoc.skip>true</maven.javadoc.skip>
   </properties>
   <dependencies verbose="true">
-    <!--
-        Must include org.apache.maven:maven-plugin-api (even though it is
-        provided in the parent POM) to avoid:
-
-        [ERROR] Failed to execute goal
-        ball:ball-artifact-maven-plugin:3.0.0:attach (attach-parent.xml) on
-        project parent: Execution attach-parent.xml of goal
-        ball:ball-artifact-maven-plugin:3.0.0:attach failed: A required
-        class was missing while executing
-        ball:ball-artifact-maven-plugin:3.0.0:attach:
-        org/apache/commons/lang3/StringUtils
-    -->
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-plugin-api</artifactId>
-    </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-artifact</artifactId>
