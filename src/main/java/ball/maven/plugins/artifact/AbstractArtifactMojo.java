@@ -21,14 +21,12 @@ package ball.maven.plugins.artifact;
  * ##########################################################################
  */
 import java.io.File;
-import java.util.regex.Pattern;
 import javax.inject.Inject;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
@@ -52,11 +50,7 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
     @Inject
     private MavenProjectHelper helper = null;
 
-    @Parameter(defaultValue = "${localRepository}",
-               readonly = true, required = true)
-    private ArtifactRepository local = null;
-
-    @Parameter(defaultValue = "${project}", readonly = true, required = true)
+    @Parameter(defaultValue = "${project}")
     private MavenProject project = null;
 
     @Parameter(defaultValue = "${project.build.directory}")
@@ -65,15 +59,15 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
     @Parameter(defaultValue = "${project.build.finalName}")
     private String name = null;
 
-    @Parameter(property = "type", required = false)
+    @Parameter(property = "type")
     @Getter
     private String type = null;
 
-    @Parameter(property = "classifier", required = false)
+    @Parameter(property = "classifier")
     @Getter
     private String classifier = null;
 
-    @Parameter(property = "file", required = false)
+    @Parameter(property = "file")
     @Getter
     private File file = null;
 
@@ -144,41 +138,6 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
         return (defaultString(classifier, "")
                 + ((isNotEmpty(classifier) && isNotEmpty(type)) ? ":" : "")
                 + defaultString(type, ""));
-    }
-
-    /**
-     * See
-     * {@link org.apache.maven.artifact.repository.layout.DefaultRepositoryLayout#pathOf(Artifact)}.
-     *
-     * @param   type            The {@link String} type.
-     * @param   classifier      The {@link String} classifier.
-     *
-     * @return  The {@link File} of the local repository (may or may not
-     *          exist).
-     */
-    protected File getLocalRepositoryFile(String type, String classifier) {
-        File file = new File(local.getBasedir());
-
-        for (String string :
-                 project.getArtifact().getGroupId()
-                 .split(Pattern.quote("."))) {
-            file = new File(file, string);
-        }
-
-        file = new File(file, project.getArtifact().getArtifactId());
-        file = new File(file, project.getArtifact().getBaseVersion());
-
-        String name = project.getArtifactId() + "-" + project.getVersion();
-
-        if (isNotEmpty(classifier)) {
-            name += "-" + classifier;
-        }
-
-        name += "." + defaultString(type, JAR);
-
-        file = new File(file, name);
-
-        return file;
     }
 
     /**
