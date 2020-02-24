@@ -21,6 +21,7 @@ package ball.maven.plugins.artifact;
  * ##########################################################################
  */
 import java.io.File;
+import java.util.Objects;
 import javax.inject.Inject;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,8 +34,6 @@ import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectHelper;
 
 import static lombok.AccessLevel.PROTECTED;
-import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
 /**
  * {@link org.apache.maven.plugin.Mojo}.
@@ -138,6 +137,18 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
         return (defaultString(classifier, "")
                 + ((isNotEmpty(classifier) && isNotEmpty(type)) ? ":" : "")
                 + defaultString(type, ""));
+    }
+
+    private static boolean isEmpty(CharSequence sequence) {
+        return Objects.isNull(sequence) || sequence.length() == 0;
+    }
+
+    private static boolean isNotEmpty(CharSequence sequence) {
+        return (! isEmpty(sequence));
+    }
+
+    private static String defaultString(String string, String defaultString) {
+        return (string != null) ? string : defaultString;
     }
 
     /**

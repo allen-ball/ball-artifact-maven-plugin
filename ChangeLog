@@ -1,3 +1,8 @@
+2020-02-24  Allen D. Ball  <ball@hcf.dev>
+
+	* src/main/java/ball/maven/plugins/artifact/AbstractArtifactMojo.java:
+	Removed dependency on org.apache.commons.lang3.StringUtils.
+
 2020-02-19  Allen D. Ball  <ball@hcf.dev>
 
 	* Removed unused methods and @Parameter fields.
