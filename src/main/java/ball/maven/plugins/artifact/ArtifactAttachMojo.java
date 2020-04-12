@@ -20,7 +20,6 @@ package ball.maven.plugins.artifact;
  * limitations under the License.
  * ##########################################################################
  */
-import java.io.File;
 import java.util.List;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -44,7 +43,7 @@ import static org.apache.maven.plugins.annotations.LifecyclePhase.PACKAGE;
 @Mojo(name = "attach", defaultPhase = PACKAGE, requiresProject = true)
 @NoArgsConstructor @ToString @Slf4j
 public class ArtifactAttachMojo extends AbstractArtifactMojo {
-    @Parameter(property = "artifacts", required = false)
+    @Parameter(property = "artifacts")
     private List<Artifact> artifacts = null;
 
     @Override

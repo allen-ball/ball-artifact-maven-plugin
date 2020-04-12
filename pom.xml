@@ -28,40 +28,26 @@
   <description></description>
   <groupId>ball</groupId>
   <artifactId>ball-artifact-maven-plugin</artifactId>
-  <version>3.1.0</version>
+  <version>3.1.1</version>
   <packaging>maven-plugin</packaging>
   <parent>
     <groupId>ball</groupId>
     <artifactId>parent</artifactId>
-    <version>20200212.0</version>
+    <version>20200412.0</version>
     <relativePath>../ball/parent/pom.xml</relativePath>
   </parent>
   <inceptionYear>2018</inceptionYear>
+  <licenses>
+    <license>
+      <name>Apache-2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
   <properties>
     <jre.version>1.8</jre.version>
     <maven-plugin-goal-prefix>ball-artifact</maven-plugin-goal-prefix>
     <maven.javadoc.skip>true</maven.javadoc.skip>
   </properties>
-  <dependencies verbose="true">
-    <!--
-        Must include org.apache.maven:maven-plugin-api (even though it is
-        provided in the parent POM) to avoid:
-
-        [ERROR] Failed to execute goal
-        ball:ball-artifact-maven-plugin:3.0.0:attach (attach-parent.xml) on
-        project parent: Execution attach-parent.xml of goal
-        ball:ball-artifact-maven-plugin:3.0.0:attach failed: A required
-        class was missing while executing
-        ball:ball-artifact-maven-plugin:3.0.0:attach:
-        org/apache/commons/lang3/StringUtils
-    -->
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-plugin-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-artifact</artifactId>
-    </dependency>
-  </dependencies>
+  <dependencies verbose="true"/>
 </project>
