@@ -83,9 +83,9 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
     protected void set(AttachedArtifact artifact) {
         File file = getArtifactFile(artifact);
 
-        getLog().info(label(project.getArtifact().getClassifier(),
-                            project.getArtifact().getType())
-                      + " <-- " + file);
+        log.info("{} <-- {}",
+                 label(project.getArtifact().getClassifier(),
+                       project.getArtifact().getType()), file);
         project.getArtifact().setFile(file);
     }
 
@@ -98,7 +98,7 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
     protected void attach(AttachedArtifact artifact) {
         File file = getArtifactFile(artifact);
 
-        getLog().info(label(artifact) + " <-- " + file);
+        log.info("{} <-- {}", label(artifact), file);
         helper.attachArtifact(project,
                               defaultString(artifact.getType(), JAR),
                               artifact.getClassifier(),
