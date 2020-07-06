@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:resolver="antlib:org.apache.maven.resolver.ant"
          xmlns:util="antlib:ball.util.ant"
-         name="ball-license-maven-plugin" basedir="." default="jar">
+         name="ball-artifact-maven-plugin" basedir="." default="jar">
   <description>
     ball-artifact-maven-plugin
     -------------------------------------------------------------
