@@ -9,6 +9,9 @@ Description
 
 Retired in favor of [build-helper:attach-artifact].
 
+Javadoc is published at
+<https://allen-ball.github.io/ball-artifact-maven-plugin/>.
+
 
 License
 -------
