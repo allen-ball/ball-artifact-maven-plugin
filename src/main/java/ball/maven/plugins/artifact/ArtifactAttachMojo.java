@@ -2,8 +2,6 @@ package ball.maven.plugins.artifact;
 /*-
  * ##########################################################################
  * Artifact Attach Maven Plugin
- * $Id$
- * $HeadURL$
  * %%
  * Copyright (C) 2018 - 2021 Allen D. Ball
  * %%
@@ -38,7 +36,6 @@ import static org.apache.maven.plugins.annotations.LifecyclePhase.PACKAGE;
  * {@maven.plugin.fields}
  *
  * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
- * @version $Revision$
  */
 @Mojo(name = "attach", defaultPhase = PACKAGE, requiresProject = true)
 @NoArgsConstructor @ToString @Slf4j

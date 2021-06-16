@@ -11,8 +11,6 @@ package ball.maven.plugins.artifact;
 /*-
  * ##########################################################################
  * Artifact Attach Maven Plugin
- * $Id$
- * $HeadURL$
  * %%
  * Copyright (C) 2018 - 2021 Allen D. Ball
  * %%
