@@ -3,7 +3,7 @@
   ##########################################################################
   Artifact Attach Maven Plugin
   %%
-  Copyright (C) 2018 - 2021 Allen D. Ball
+  Copyright (C) 2018 - 2022 Allen D. Ball
   %%
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -27,12 +27,12 @@
   <description></description>
   <groupId>ball</groupId>
   <artifactId>ball-artifact-maven-plugin</artifactId>
-  <version>3.1.7.20210611</version>
+  <version>3.1.7-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
   <parent>
     <groupId>ball</groupId>
     <artifactId>parent</artifactId>
-    <version>20210611.0</version>
+    <version>2022.0.0-SNAPSHOT</version>
     <relativePath>../ball/parent/pom.xml</relativePath>
   </parent>
   <inceptionYear>2018</inceptionYear>

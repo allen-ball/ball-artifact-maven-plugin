@@ -16,7 +16,7 @@ Javadoc is published at
 License
 -------
 
-This code is under the [Apache License, Version 2.0, January 2004].
+This code is released under the [Apache License, Version 2.0, January 2004].
 
 
 [Apache Maven]: https://maven.apache.org/

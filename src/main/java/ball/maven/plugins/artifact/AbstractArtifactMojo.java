@@ -3,7 +3,7 @@ package ball.maven.plugins.artifact;
  * ##########################################################################
  * Artifact Attach Maven Plugin
  * %%
- * Copyright (C) 2018 - 2021 Allen D. Ball
+ * Copyright (C) 2018 - 2022 Allen D. Ball
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,8 +39,7 @@ import static lombok.AccessLevel.PROTECTED;
  * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
  */
 @NoArgsConstructor(access = PROTECTED) @ToString @Slf4j
-public abstract class AbstractArtifactMojo extends AbstractMojo
-                                           implements AttachedArtifact {
+public abstract class AbstractArtifactMojo extends AbstractMojo implements AttachedArtifact {
     protected static final String JAR = "jar";
 
     @Inject
@@ -80,9 +79,7 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
     protected void set(AttachedArtifact artifact) {
         File file = getArtifactFile(artifact);
 
-        log.info("{} <-- {}",
-                 label(project.getArtifact().getClassifier(),
-                       project.getArtifact().getType()), file);
+        log.info("{} <-- {}", label(project.getArtifact().getClassifier(), project.getArtifact().getType()), file);
         project.getArtifact().setFile(file);
     }
 
@@ -96,10 +93,7 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
         File file = getArtifactFile(artifact);
 
         log.info("{} <-- {}", label(artifact), file);
-        helper.attachArtifact(project,
-                              defaultString(artifact.getType(), JAR),
-                              artifact.getClassifier(),
-                              file);
+        helper.attachArtifact(project, defaultString(artifact.getType(), JAR), artifact.getClassifier(), file);
     }
 
     /**
@@ -116,11 +110,7 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
         File file = artifact.getFile();
 
         if (file == null) {
-            file =
-                new File(directory,
-                         name
-                         + (isNotEmpty(classifier) ? ("-" + classifier) : "")
-                         + "." + type);
+            file = new File(directory, name + (isNotEmpty(classifier) ? ("-" + classifier) : "") + "." + type);
         }
 
         return file;
@@ -152,8 +142,7 @@ public abstract class AbstractArtifactMojo extends AbstractMojo
      * {@code <artifact/>} parameter abstract base class.
      */
     @NoArgsConstructor(access = PROTECTED) @ToString
-    protected static class AbstractAttachedArtifact
-                           implements AttachedArtifact {
+    protected static class AbstractAttachedArtifact implements AttachedArtifact {
         @Getter @Setter private String type = null;
         @Getter @Setter private String classifier = null;
         @Getter @Setter private File file = null;

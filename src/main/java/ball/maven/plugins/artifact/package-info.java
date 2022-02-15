@@ -4,7 +4,6 @@
  * {@maven.plugin.help}
  *
  * @author {@link.uri mailto:ball@hcf.dev Allen D. Ball}
- * @version $Revision$
  */
 @Retain
 package ball.maven.plugins.artifact;
@@ -12,7 +11,7 @@ package ball.maven.plugins.artifact;
  * ##########################################################################
  * Artifact Attach Maven Plugin
  * %%
- * Copyright (C) 2018 - 2021 Allen D. Ball
+ * Copyright (C) 2018 - 2022 Allen D. Ball
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
